@@ -1,0 +1,4 @@
+dist/
+*.ccx
+*.zip
+.DS_Store

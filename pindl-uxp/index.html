@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        margin: 0;
+        padding: 12px;
+        font-size: 12px;
+        color: #e6e6e6;
+        font-family: -apple-system, system-ui, sans-serif;
+      }
+      h2 { margin: 0 0 10px; font-size: 14px; }
+      label { display: block; margin: 10px 0 4px; opacity: 0.85; }
+      sp-textfield, sp-textarea { width: 100%; }
+      .row { display: flex; gap: 8px; align-items: center; margin-top: 12px; }
+      .row sp-button { flex: 1; }
+      #log {
+        margin-top: 12px;
+        height: 160px;
+        overflow-y: auto;
+        background: #1d1d1d;
+        border: 1px solid #3a3a3a;
+        border-radius: 4px;
+        padding: 6px 8px;
+        font-family: monospace;
+        font-size: 11px;
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+      .muted { opacity: 0.6; }
+      .ok { color: #6fcf6f; }
+      .err { color: #ff7a7a; }
+      .skip { color: #d9b34a; }
+    </style>
+  </head>
+  <body>
+    <h2>pindl — Pinterest board video downloader</h2>
+
+    <label for="url">Board URL</label>
+    <sp-textfield id="url" placeholder="https://www.pinterest.com/you/your-board/"></sp-textfield>
+
+    <label for="cookie">Pinterest cookie string</label>
+    <sp-textarea id="cookie" rows="3" placeholder="Paste the `cookie:` header from any pinterest.com request (devtools › Network)"></sp-textarea>
+
+    <sp-checkbox id="importToggle" checked>Import downloads into active project</sp-checkbox>
+
+    <div class="row">
+      <sp-button id="chooseFolder" variant="secondary">Choose folder…</sp-button>
+      <sp-button id="download" variant="cta">Download</sp-button>
+    </div>
+
+    <div id="folderLabel" class="muted" style="margin-top:6px;">No output folder selected.</div>
+
+    <div id="log"></div>
+
+    <script src="src/main.js"></script>
+  </body>
+</html>

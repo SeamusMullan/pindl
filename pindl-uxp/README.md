@@ -38,28 +38,6 @@ Validates the manifest + JS, then writes `dist/pindl-uxp-<version>.zip` — the
 unsigned bundle the UXP Developer Tool loads. Bump `version` in `manifest.json`
 before each QA drop so testers can tell builds apart.
 
-## Send to QA
-
-QA testers have **no dev setup**, so they need a signed `.ccx` they can
-double-click (Creative Cloud installs it via the Plugin Installer). UXP signing
-lives in the UXP Developer Tool, so the signed artifact is produced there:
-
-1. `./build.sh` (catches errors before packaging).
-2. UDT › add `manifest.json` › **••• › Package**.
-3. UDT signs it (self-signed cert is fine for testing) and writes `pindl.ccx`.
-4. Send `pindl.ccx` to QA. They double-click → installs into Premiere. Panel
-   shows under **Window › UXP/Extensions › pindl**.
-
-Each tester also needs:
-
-- A Pinterest **cookie string** (devtools › Network › any pinterest.com request
-  › copy `cookie` header value). No login flow in the plugin.
-- The **board URL** to test against.
-
-> Self-signed `.ccx` installs only on machines with Creative Cloud plugin
-> developer/test mode allowed. For a build that installs cleanly everywhere,
-> submit through the Adobe Marketplace (production signing). Use that route once
-> QA signs off.
 
 ### QA test checklist
 
